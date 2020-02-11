@@ -12,4 +12,12 @@ public class Viewer {
     public void output(String msg) {
         System.out.println(msg);
     }
+
+    public String getRegexHintMsg(String expectedRegex, String msgBase) {
+        StringBuffer buffer = new StringBuffer();
+        buffer.append(msgBase);
+        buffer.append(", expected regex: ");
+        buffer.append(expectedRegex);
+        return buffer.toString();
+    }
 }

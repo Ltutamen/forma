@@ -49,7 +49,7 @@ public class Controller {
                 return matcher.group();
             }
             else
-                viewer.output(wrongInputMsg);
+                viewer.output(viewer.getRegexHintMsg(regex, wrongInputMsg));
         }
 
     }
