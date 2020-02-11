@@ -30,7 +30,7 @@ public class Controller {
                 resources.getString("MESSAGE.WRONG_LOGIN_INPUT_FORMAT"));
         String password = getInput(
                 scn,
-                resources.getString("MESSAGE.LOGIN_REQUEST_MSG"),
+                resources.getString("MESSAGE.PSW_REQUEST_MSG"),
                 resources.getString("REGEX.PASSWORD_REGEX"),
                 resources.getString("MESSAGE.CORRECT_PSW_INPUT_FORMAT"),
                 resources.getString("MESSAGE.WRONG_PSW_INPUT_FORMAT"));
