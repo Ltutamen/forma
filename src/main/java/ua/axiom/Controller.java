@@ -22,18 +22,13 @@ public class Controller {
     public void run() {
         Scanner scn = new Scanner(System.in);
 
+
         String login = getInput(
-                scn,
-                resources.getString("MESSAGE.LOGIN_REQUEST_MSG"),
-                resources.getString("REGEX.LOGIN_REGEX"),
-                resources.getString("MESSAGE.CORRECT_LOGIN_INPUT_FORMAT"),
-                resources.getString("MESSAGE.WRONG_LOGIN_INPUT_FORMAT"));
+                scn, resources, "LOGIN");
+
         String password = getInput(
-                scn,
-                resources.getString("MESSAGE.PSW_REQUEST_MSG"),
-                resources.getString("REGEX.PASSWORD_REGEX"),
-                resources.getString("MESSAGE.CORRECT_PSW_INPUT_FORMAT"),
-                resources.getString("MESSAGE.WRONG_PSW_INPUT_FORMAT"));
+                scn, resources, "PSW");
+
 
     }
 
@@ -47,10 +42,30 @@ public class Controller {
             if(matcher.matches()) {
                 viewer.output(correctInputMsg);
                 return matcher.group();
-            }
-            else
-                viewer.output(viewer.getRegexHintMsg(regex, wrongInputMsg));
-        }
 
+            } else {
+                viewer.output(viewer.getRegexHintMsg(regex, wrongInputMsg));
+            }
+        }
+    }
+
+    private String getInput(Scanner scanner, ResourceBundle resources, String propertiesPrefix) {
+        Pattern pattern = Pattern.compile(resources.getString("REGEX." + propertiesPrefix + "_REGEX"));
+
+        viewer.output(resources.getString("MESSAGE." + propertiesPrefix + "_REQUEST_MSG"));
+
+        while (true) {
+            Matcher matcher = pattern.matcher(scanner.nextLine());
+            if(matcher.matches()) {
+                viewer.output(resources.getString("MESSAGE.CORRECT_" + propertiesPrefix + "_INPUT_FORMAT"));
+                return matcher.group();
+
+            } else {
+                viewer.output(
+                        viewer.getRegexHintMsg(
+                                resources.getString("REGEX." + propertiesPrefix + "_REGEX"),
+                                resources.getString("MESSAGE.WRONG_" + propertiesPrefix + "_INPUT_FORMAT")));
+            }
+        }
     }
 }
