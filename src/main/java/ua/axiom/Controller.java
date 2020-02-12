@@ -20,8 +20,10 @@ public class Controller {
     }
 
     public void run() {
-        Scanner scn = new Scanner(System.in);
+        this.run(new Scanner(System.in));
+    }
 
+    public void run(Scanner scn) {
 
         String login = getInput(
                 scn, resources, "LOGIN");
@@ -32,6 +34,7 @@ public class Controller {
 
     }
 
+    @Deprecated
     private String getInput(Scanner scanner, String welcomeMsg, String regex, String correctInputMsg, String wrongInputMsg) {
         Pattern pattern = Pattern.compile(regex);
 

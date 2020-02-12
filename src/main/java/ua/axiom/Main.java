@@ -12,5 +12,6 @@ public class Main {
 
         new Controller(model, viewer, resources).run();
 
+
     }
 }
