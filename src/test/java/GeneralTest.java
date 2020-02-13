@@ -24,7 +24,7 @@ public class GeneralTest {
 
     @Test(timeout = 400)
     public void generalEngLocaleTest() {
-        InputStream inputStream = new StringBufferInputStream("Jhhon66\nasdfer253\n");
+        InputStream inputStream = new StringBufferInputStream("Jhhon\nGsdfer\nRfwfwf\n5twgd\nKyiv\nKonovaltsa\n55a\n661\n99900\n99900\n99990000\ng\negegf@gmail.com\nlalala\n78yHKH90rg\n");
         ResourceBundle resources = ResourceBundle.getBundle("textbook_en");
         Viewer viewer = new Viewer(resources);
         Model model = new Model();
