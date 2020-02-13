@@ -7,9 +7,9 @@ public class IRLInformation {
     private final String mobilePhone;
     private final Optional<String> secondPhone;
 
-    public IRLInformation(String homePhone, String mobilePhone, Optional<String> secondPhone) {
+    public IRLInformation(String homePhone, String mobilePhone, String secondPhone) {
         this.homePhone = homePhone;
         this.mobilePhone = mobilePhone;
-        this.secondPhone = secondPhone;
+        this.secondPhone = secondPhone.length() > 6 ? Optional.of(secondPhone) : Optional.empty();
     }
 }

@@ -1,8 +1,14 @@
 package ua.axiom;
 
+import jdk.nashorn.internal.runtime.regexp.joni.constants.EncloseType;
+import ua.axiom.model.Entity;
 import ua.axiom.model.Model;
+import ua.axiom.model.personalData.AddressInformation;
+import ua.axiom.model.personalData.IRLInformation;
 import ua.axiom.model.personalData.NominalInformation;
+import ua.axiom.model.personalData.URLInformation;
 
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -46,9 +52,23 @@ public class Controller {
         String building = getInput(scn, resources, "BUILDING");
         String flatNumber = getInput(scn, resources, "FLAT_NUMBER");
         String postcode = getInput(scn, resources, "POSTCODE");
+
+        AddressInformation addressInformation = new AddressInformation(city, street, building, Integer.parseInt(flatNumber), Integer.parseInt(postcode));
+
+        String homePhone = getInput(scn, resources, "HOME_PHONE");
+        String mobilePhone = getInput(scn, resources, "MOBILE_PHONE");
+        String optionalPhone = getInput(scn, resources,"OPTIONAL_PHONE");
+
+        IRLInformation irlInformation = new IRLInformation(homePhone, mobilePhone, optionalPhone);
+
+        String eMail = getInput(scn, resources, "EMAIL");
+        String skype = getInput(scn, resources, "SKYPE");
+
+        URLInformation urlInformation = new URLInformation(eMail, skype);
+
         String password = getInput(scn, resources, "PSW");
 
-
+        Entity entity = new Entity(nominalInformation, urlInformation, irlInformation, addressInformation, Entity.ENTITY_GROUP.FAMILY);
 
     }
 

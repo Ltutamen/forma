@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 
 
 public class Entity {
-    enum ENTITY_GROUP{FAMILY, WORK, FRIENDS}
+    public enum ENTITY_GROUP{FAMILY, WORK, FRIENDS}
 
     private final NominalInformation nominalInformation;
     private final URLInformation urlInformation;
