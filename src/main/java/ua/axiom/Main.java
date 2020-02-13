@@ -1,6 +1,7 @@
 package ua.axiom;
 
-import java.util.Locale;
+import ua.axiom.model.Model;
+
 import java.util.ResourceBundle;
 
 public class Main {

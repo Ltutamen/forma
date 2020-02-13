@@ -1,6 +1,6 @@
 import org.junit.Test;
 import ua.axiom.Controller;
-import ua.axiom.Model;
+import ua.axiom.model.Model;
 import ua.axiom.Viewer;
 
 import java.io.InputStream;

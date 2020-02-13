@@ -1,5 +1,7 @@
 package ua.axiom;
 
+import ua.axiom.model.Model;
+
 import java.util.ResourceBundle;
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -25,11 +27,19 @@ public class Controller {
 
     public void run(Scanner scn) {
 
-        String login = getInput(
-                scn, resources, "LOGIN");
+        String surname = getInput(scn, resources, "SURNAME");
+        String name = getInput(scn, resources,"NAME");
+        String patronymic = getInput(scn,resources, "PATRONYMIC");
+        String shortFullName = new StringBuilder().
+                append(surname).
+                append(' ').
+                append(name.substring(0,1)).
+                append('.').
+                toString();
 
-        String password = getInput(
-                scn, resources, "PSW");
+        String login = getInput(scn, resources, "LOGIN");
+        String password = getInput(scn, resources, "PSW");
+
 
 
     }
