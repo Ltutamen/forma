@@ -1,6 +1,7 @@
 package ua.axiom;
 
 import ua.axiom.model.Model;
+import ua.axiom.model.personalData.NominalInformation;
 
 import java.util.ResourceBundle;
 import java.util.Scanner;
@@ -14,7 +15,7 @@ public class Controller {
     private ResourceBundle resources;
     private boolean isRunning;
 
-    public Controller(Model model, Viewer viewer,ResourceBundle resources) {
+    public Controller(Model model, Viewer viewer, ResourceBundle resources) {
         this.model = model;
         this.viewer = viewer;
         this.resources = resources;
@@ -26,7 +27,6 @@ public class Controller {
     }
 
     public void run(Scanner scn) {
-
         String surname = getInput(scn, resources, "SURNAME");
         String name = getInput(scn, resources,"NAME");
         String patronymic = getInput(scn,resources, "PATRONYMIC");
@@ -38,6 +38,14 @@ public class Controller {
                 toString();
 
         String login = getInput(scn, resources, "LOGIN");
+
+        NominalInformation nominalInformation = new NominalInformation(surname, name, login, patronymic);
+
+        String city = getInput(scn, resources, "CITY");
+        String street = getInput(scn, resources, "STREET");
+        String building = getInput(scn, resources, "BUILDING");
+        String flatNumber = getInput(scn, resources, "FLAT_NUMBER");
+        String postcode = getInput(scn, resources, "POSTCODE");
         String password = getInput(scn, resources, "PSW");
 
 

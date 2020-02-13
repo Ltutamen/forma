@@ -6,7 +6,7 @@ import java.util.List;
 public class Model {
     private List<Entity> entities;
 
-    Model() {
+    public Model() {
         entities = new LinkedList<Entity>();
     }
 

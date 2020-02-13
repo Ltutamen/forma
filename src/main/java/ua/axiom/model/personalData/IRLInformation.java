@@ -7,10 +7,9 @@ public class IRLInformation {
     private final String mobilePhone;
     private final Optional<String> secondPhone;
 
-    public IRLInformation(String homePhone, String mobilePhone, Optional<String> secondPhone, String skype) {
+    public IRLInformation(String homePhone, String mobilePhone, Optional<String> secondPhone) {
         this.homePhone = homePhone;
         this.mobilePhone = mobilePhone;
         this.secondPhone = secondPhone;
-        this.skype = skype;
     }
 }
