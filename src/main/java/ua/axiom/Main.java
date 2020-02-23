@@ -1,6 +1,7 @@
 package ua.axiom;
 
 import ua.axiom.model.Model;
+import ua.axiom.viewer.Viewer;
 
 import java.util.ResourceBundle;
 

@@ -1,14 +1,10 @@
 package ua.axiom;
 
-import jdk.nashorn.internal.runtime.regexp.joni.constants.EncloseType;
 import ua.axiom.model.Entity;
+import ua.axiom.model.EntityAlreadyExistException;
 import ua.axiom.model.Model;
-import ua.axiom.model.personalData.AddressInformation;
-import ua.axiom.model.personalData.IRLInformation;
-import ua.axiom.model.personalData.NominalInformation;
-import ua.axiom.model.personalData.URLInformation;
+import ua.axiom.viewer.Viewer;
 
-import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -33,8 +29,26 @@ public class Controller {
     }
 
     public void run(Scanner scn) {
-        String surname = getInput(scn, resources, "SURNAME");
-        String name = getInput(scn, resources,"NAME");
+        while (true) {
+            try {
+                String name = getInput(scn, resources,"NAME");
+                String login = getInput(scn, resources, "LOGIN");
+                String password = getInput(scn, resources, "PSW");
+
+                //  model.validate(login);
+
+                model.addEntity(new Entity(login, name, password));
+
+                //  break;
+            } catch (EntityAlreadyExistException eaee) {
+                viewer.output(eaee.getMessage());
+            }
+
+
+
+        }
+        //  String surname = getInput(scn, resources, "SURNAME");
+        /*
         String patronymic = getInput(scn,resources, "PATRONYMIC");
         String shortFullName = new StringBuilder().
                 append(surname).
@@ -42,9 +56,8 @@ public class Controller {
                 append(name.substring(0,1)).
                 append('.').
                 toString();
-
-        String login = getInput(scn, resources, "LOGIN");
-
+*/
+/*
         NominalInformation nominalInformation = new NominalInformation(surname, name, login, patronymic);
 
         String city = getInput(scn, resources, "CITY");
@@ -65,10 +78,7 @@ public class Controller {
         String skype = getInput(scn, resources, "SKYPE");
 
         URLInformation urlInformation = new URLInformation(eMail, skype);
-
-        String password = getInput(scn, resources, "PSW");
-
-        Entity entity = new Entity(nominalInformation, urlInformation, irlInformation, addressInformation, Entity.ENTITY_GROUP.FAMILY);
+*/
 
     }
 

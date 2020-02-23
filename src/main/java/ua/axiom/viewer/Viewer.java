@@ -1,4 +1,4 @@
-package ua.axiom;
+package ua.axiom.viewer;
 
 import java.util.ResourceBundle;
 
@@ -11,6 +11,10 @@ public class Viewer {
 
     public void output(String msg) {
         System.out.println(msg);
+    }
+
+    public void exceptionOutput(Exception e) {
+        output(e.getLocalizedMessage());
     }
 
     public String getRegexHintMsg(String expectedRegex, String msgBase) {

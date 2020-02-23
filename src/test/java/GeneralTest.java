@@ -1,7 +1,7 @@
 import org.junit.Test;
 import ua.axiom.Controller;
 import ua.axiom.model.Model;
-import ua.axiom.Viewer;
+import ua.axiom.viewer.Viewer;
 
 import java.io.InputStream;
 import java.io.StringBufferInputStream;
